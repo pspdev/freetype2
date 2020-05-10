@@ -61,6 +61,8 @@ orig_libdir=$libdir
 include_suffix=`echo $includedir | sed "s|$prefix||"`
 lib_suffix=`echo $libdir | sed "s|$exec_prefix||"`
 
+# psp fix
+show_static=yes
 
 usage()
 {

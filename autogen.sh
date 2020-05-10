@@ -152,9 +152,15 @@ echo "generating \`configure.ac'"
 sed -e "s;@VERSION@;$freetype_major$freetype_minor$freetype_patch;" \
   < configure.raw > configure.ac
 
+# psp: move patched file out of the way
+mv config.sub config.sub-psp
+
 run aclocal -I . --force
 run $LIBTOOLIZE --force --copy --install
 run autoconf --force
+
+# psp: move patched file back
+mv config.sub-psp config.sub
 
 chmod +x install-sh
 
